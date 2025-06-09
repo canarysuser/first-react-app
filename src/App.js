@@ -1,24 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
+import Home from './ui/Home';
+import ProductHome from './products/productHome';
+
 
 function App() {
+ 
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // This is the root element of the component
+   <div className='container-fluid'> 
+      <h2>Welcome to ReactJS </h2>
+      <h5>Sub Header</h5>
+    {/* <Home/> */}
+    <ProductHome />
+   </div>
+   
   );
 }
 
