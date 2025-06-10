@@ -7,6 +7,7 @@ import {
 } from 'formik';
 
 import * as Yup from 'yup';
+import { useParams } from 'react-router';
 const FormSchema = Yup.object().shape({
   productId: Yup.number().required('Product ID is required'),
   productName: Yup.string()
@@ -24,6 +25,7 @@ const FormSchema = Yup.object().shape({
 function ProductDetailsFormik(props) {
 
      let [model, setModel] = React.useState({...props.model});
+     let {id} = useParams(id);
      useEffect(() => {
             //if(model.productId !== props.model.productId) {
             console.log('useEffect called');

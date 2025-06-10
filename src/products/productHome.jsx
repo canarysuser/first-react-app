@@ -3,7 +3,7 @@ import Product from './product';
 import * as service from './productService';
 import ProductList from './productList';
 import ProductDetails from './productDetails';
-import ProductDetailsFormik from './productDetailsFormik';
+
 import * as apiService from './productApi';
 
 function ProductHome() {
