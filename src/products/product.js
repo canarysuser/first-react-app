@@ -6,5 +6,6 @@ export default class Product {
         this.unitPrice = unitPrice;
         this.unitsInStock = unitsInStock;
         this.discontinued = discontinued;
+        this.id='';
     }
 }

@@ -14,3 +14,21 @@ export function getProducts() {
 export function getProductById(productId) {
     return productList.find(product => product.productId === productId);
 }
+export function upsert(product) {
+    const index = productList.findIndex(
+        p => p.productId === product.productId
+    );
+    if (index > -1) {
+        productList.splice(index, 1, product);
+    } else {
+        productList.unshift(product);
+    }
+}
+export function remove(productId) {
+    const index = productList.findIndex(
+        product => product.productId === productId
+    );
+    if (index > -1) {
+        productList.splice(index, 1);
+    }
+}
