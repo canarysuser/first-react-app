@@ -7,9 +7,10 @@ import { BrowserRouter, Router } from 'react-router';
 import { createStore } from 'redux';
 import { configureStore } from './store/config/store-config';
 import { Provider } from 'react-redux';
+import store from './store/config/rtk-config';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const store = configureStore();
+//const store = configureStore();
 
 root.render(
   <Provider store={store}>

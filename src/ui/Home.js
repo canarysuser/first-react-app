@@ -8,7 +8,7 @@ function Home() {
   return (
     <div className='container'>
       <div className='text-white bg-primary'>{title}</div>
-      <CounterStoreComponent/>
+      {/* <CounterStoreComponent/> */}
       <MyComponent title={subtitle}/>
       <Greetings/>
     </div>
