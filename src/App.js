@@ -9,6 +9,9 @@ import ProductListRouted from './routed/productListRouted';
 import ProductDetailsRouted from './routed/productDetailsRouted';
 import LifecycleStages from './ui/lifecycleStages';
 import MemoizedComponent from './ui/MemoizedComponent';
+import SimpleReducer from './statemanagement/SimpleReducer';
+import MultipleReducers from './statemanagement/MultipleReducers';
+import { ContextComponent } from './statemanagement/ContextComponent';
 
 function App() {
  
@@ -23,6 +26,9 @@ function App() {
       <Route path='/products' element={<ProductHome/>}/>
       <Route path='/routed' element={<ProductListRouted/>}/>
       <Route path='/routed/:id' element={<ProductDetailsRouted/>}/>
+      <Route path='/simpred' element={<SimpleReducer/>}/>
+      <Route path='/multiple' element={<MultipleReducers/>}/>
+      <Route path='/context' element={<ContextComponent/>}/>
       <Route path='/login' element={<h2>Login Component</h2>}/>
       <Route path='*' element={<PageNotFound/>}/>
     </Routes>

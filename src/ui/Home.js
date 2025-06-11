@@ -1,5 +1,6 @@
 import React from 'react'
 import { Greetings } from './Miscellaneous';
+import CounterStoreComponent from '../statemanagement/CounterStoreComponent';
 
 function Home() {
     let title="Home";
@@ -7,6 +8,7 @@ function Home() {
   return (
     <div className='container'>
       <div className='text-white bg-primary'>{title}</div>
+      <CounterStoreComponent/>
       <MyComponent title={subtitle}/>
       <Greetings/>
     </div>

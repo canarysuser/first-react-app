@@ -17,14 +17,23 @@ function SiteHeader() {
         <li className="nav-item">
           <NavLink className='nav-link'  to={'/products'}>Products</NavLink>
         </li>
-        <li className="nav-item dropdown">
+        <li className="nav-item ">
          <NavLink className='nav-link'  to={'/routed'}>Routed</NavLink>
        </li>
-       <li className="nav-item dropdown">
+       <li className="nav-item ">
          <NavLink className='nav-link'  to={'/lifecycle'}>Life Cycle</NavLink>
        </li>
-       <li className="nav-item dropdown">
+       <li className="nav-item ">
          <NavLink className='nav-link'  to={'/memos'}>Memoization</NavLink>
+       </li>
+       <li className="nav-item ">
+         <NavLink className='nav-link'  to={'/simpred'}>Simple Reducer</NavLink>
+       </li>
+       <li className="nav-item ">
+         <NavLink className='nav-link'  to={'/multiple'}>Multiple Reducers</NavLink>
+       </li>
+        <li className="nav-item ">
+         <NavLink className='nav-link'  to={'/context'}>Context API</NavLink>
        </li>
       </ul>
       <div>
