@@ -1,0 +1,275 @@
+JavaScript
+-- ES6 - ESNext
+	- Functional scripting language 
+	- Class/OO concepts got introduced 
+
+//constructor function
+function Product(productid, productName) 
+{
+	this.productId=productid;
+	this.productName=productName;
+} 
+
+
+//Prototypal Inheritance 
+Product.prototype = { 
+	getId : function() { return this.productId; } 
+	.... 
+} 
+var obj = new Product(101, 'P1'); 
+obj.getId(); 
+
+//ES6 
+class Product 
+{
+	//fields with accessibility 
+	productId=0; 
+	productName=''; 
+	
+	//only one is allowed in the class declaration 
+	//constructor overloading is not allowed.
+	constructor(pId, pname) { 
+		this.productId=pid;
+		this.productName=pname; 
+	} 
+	show() { 
+		console.log('Id:', this.productId); 
+	}
+}
+var obj = new Product(11,'11'); 
+obj.show(); 
+
+
+
+React JS 
+-- is a JS library which simplifies DOM manipulation 
+-- allows to define custom HTML elements 
+-- Component driven architecture 
+-- each component is combination of HTML Template/CSS?, the State? (data), Logic? (action handlers) 
+	<h1 style='display:block' onclick="do()" id='123' class='c1' attributes > 
+		<<content Placeholder|children elements>>
+	</h1>
+-- HTML, JS, JSX (Template) -> converts the template into equivalent HTML structure at runtime 
+-- A component is a collection of other components 
+-- Each component addresses a part of the problem.
+-- reusable part of the application 
+-- hosted and executed on the client side 
+-- Server hosts the files (minimal host) like .html, .css, .js, ./images, /pdfs, /json 
+-- Servers are data-providers through RESTful APIs using JSON/XML [ JSON is preferred. ] 
+-- UI processing happens on the client side 
+-- React handles user actions, validations, routing, switching components, monitoring data state changes
+
+-- React Ecosystem 
+	- JS/TS 
+	- JSX/TSX - component template definitions 
+	- Babel - transpiler [ Browsers supports ES6/ES5 JS - does not support TS/JSX ]
+	- Routing library - React Router - handle the URLs/paths 
+	- Redux/Redux Toolkit - React Redux - State manager
+	- RxJS	- Reactive JS - async data pipelining 
+	- Thunk - Handles async operations 
+	- Axios/Fetch/any other libs - XML HTTP Request (XHR) - API calls 
+	- Next.js - React Framework for creating high-quality Web Applications 
+	- TestingLibrary/JEST - unit tests on React Components 
+	- Cypress/Selenium - E2E testing 
+
+
+Software requirements for dev environment
+- Node.JS 
+	- latest version v22 (LTS) or v24 (current) 
+	- NPM Package Manager
+	- webpack Live server 
+- VS Code or any other IDE 
+	
+
+New React App 
+- Manually create our own environment [ complete flexibility ] 
+- Create-React-App - opinionated framework for creating the initial app template [ popular ] 
+	- is being deprecated 
+- Other Full-stack frameworks 
+	Next.js App Router 
+	React Router v7
+	Expo [ for native apps ] 
+	TanStack Start (Beta) 
+	RedwoodJS - pre-installed packages
+
+	
+Managing data in React Apps 
+1. Read-only data - Props or properties
+	- is created in the parent component and a copy of it is sent to the child 
+	- in child components cannot modify this data directly - it is read-only 
+2. Every component can define its own state - state value 
+	- is created by a component and is used within the component 
+	- a copy of this can be passed to the child components 
+	- the component can update the state whenever it needs 
+	- the state changes when an existing data object is replaced with a new data object 
+	-
+ React monitor state changes and re-renders the entire component hierarchy. 
+
+
+
+Controlled Forms 
+- React manages the state of the element ( value and onChange )
+
+Uncontrolled Forms 
+- React does not manage the state of the element (defaultValue assigned once)
+- React provides a mechanism for accessing the element using 'ref' 
+
+//declaration part 
+const inputRef = useRef(null); 
+
+handleSubmit() { 
+	//extract the value from the ref element
+	let x=inputRef.current.value;
+}
+
+
+<form>
+//maps the inputRef to the form element
+<input type=text ref={inputRef}/>
+</form>
+
+- Uncontrolled elements does not use Reacts State Management to manage the input value - values held directly by the HTML DOM
+- Allows us to interact with an HTML DOM element directly 
+- When our app needs to interact with non-React code 
+- When are dealing with legacy code 
+- When we do not require real-time validations for forms 
+- When complex state management is not needed
+
+- Very difficult to implement validations and synchronize with other parts of app
+
+
+
+
+
+
+
+Axios 
+- XHR based library 
+- versatile and popular lib - can be with a variety of frameworks [ react, js, .. ] 
+- easy to use library 
+- Promise based 
+- can work with browsers as well as node servers 
+- JSON is automatically handled -> no need for response.json()
+- supports interception of request and response messages [ modify the header/change the data ] 
+- Cancellation of pending tasks
+
+
+React Router 
+- Navigational capabilities to the app 
+- plugs in to the browsers history, navigator and location objects 
+- packages -> react-router, react-router-dom 
+- react-router 
+	- define the routing tables, create the routes, handles the links, soft nagivation components 
+- react-router-dom 
+	- interfaces with the browser, handles the browser history and performs navigation on the browsers 
+- enable routing infrastructure for the application [ routing data will be held above the app level ] 
+- Route, Routes, Link, Navigate, NavLink components 
+- createBrowserHistory,,, 
+
+
+Lifecycle Stages and Events in React class components 
+1. Mounting Stage 
+	- when the component is created/constructed and loaded for the first time 
+2. Updating Stage 
+	- when the component is ready for user interactions 
+	- when the user begins interactions 
+3. Unmounting stage
+	- when the component is being removed/replaced with another component 
+
+
+1. Mounting Stage Events 
+a. constructor
+	-Component constructor is invoked - initializes the component, props, state, event bindings 
+b. static getDerivedStateFromProps 
+	-Pick any changes that have happened to the Props and return the  updated Props as local component state
+c. render() method 
+	-Evaluates the JSX expression and returns HTML content 
+d. Updates the HTML DOM and refs with the generated HTML -- mounting the generated HTML onto the HTML DOM 
+e. componentDidMount() 
+	- component loaded successfully onto the DOM and is visible to the user. 
+============================================
+
+2. Updating Stage events 
+a. gets triggered when setState(), forceUpdate() or new props sent
+b. static getDerivedStateFromProps 
+	-Pick any changes that have happened to the Props and return the  updated Props as local component state
+c. shouldComponentUpdate() -> returns true/false 
+	- controls the render behavior of the component 
+	- if true, the component renders, else it not render. 
+d. render() method 
+e. static getSnapshotBeforeUpdate() 
+	- before updating the HTML DOM with the generated HTML - this event is triggered. 
+	- set the scroll position to the previously selected location - one usage of this method 
+f. componentDidUpdate() 
+	- HTML DOM is updated with the new generated HTML 
+==============================================
+
+3. Unmounting Stage 
+a. componentWillUnmount() 
+	- just before the component is removed from HTML DOM and component objects are disposed. 
+
+
+Higher Order Components 
+- wrapper component which wraps another component
+- provide additional functionalities/data to the wrapped component 
+
+
+class HOCComponent 
+this.state = { x:20}; 
+render() { 
+	<WrappedComponent {...this.state}/>
+}
+
+class ABCComponent {
+	this.props.x++; 
+}
+
+var ABCComponent = HOCComponent(ABCComponent)
+
+
+
+Functional component Hooks 
+useState -> manage the state of the component -> class this.state 
+useEffect(() => {
+
+}, [] ==> dependency array ) 
+Dependencies of UseEffectHook 
+1. No dependency array 
+	-> the useEffect runs after every render 
+	-> leads to performance issues, infinite loops 
+	-> should be avoided
+2. Empty dependency array [] 
+	-> useEffect runs only once, after the first render 
+	-> similar to componentDidMount() 
+	-> useful when we want to load data from external sources 
+3. Array with dependencies [item1, item2,...] 
+	-> effect runs immediately after the first render 
+	-> effect whenever any of the listed dependencies change 
+	-> componentDidMount(), componentDidUpdate()-selective based on list
+	-> list should be reactive [ changes should happen  ] 
+	-> failure to conditionally update can lead to unexpected behavior
+
+Other hooks 
+useContext() -- global state management
+useReducer() 
+
+useRef() -> creating uncontrolled form elements
+useMemo() -> Memoizes [ copy of the value ] a value and returns the stored value 
+useCallback() -> Memoize a callback function -prevents unnecessary re-renders by returning the same function. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
